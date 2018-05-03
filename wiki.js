@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(() => {
   $("form").on("submit", function (e) {
     e.preventDefault();
-    var result = $(this).serialize();
-    var url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&" + result;
+    let result = $(this).serialize();
+    let url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&" + result;
     $('#mySearch').val('');
     $.getJSON({
       url: url,
@@ -14,18 +14,12 @@ $(document).ready(function () {
     
   });
 
-  function getData(data) {
-    var html = '';
-    var desc = data[2].map(function (val) {
-      console.log(val);
-      return val.substr(0, 200) + "...";
-    });
-    var url = data[3].map(function (val) {
-      console.log(val);
-      return val;
-    });
+  let getData = (data) => {
+    let html = '';
+    let desc = data[2].map((val) => val.substr(0, 200) + "...");
+    let url = data[3].map((val) => val);
 
-    $.each(data[1], function (key, val) {
+    $.each(data[1], (key, val) => {
       html += '<div class="container container-fluid results">';
       html += '<div class="row">';
       html += '<h4 class="result-title">' + val + '</h4></div>';
@@ -37,5 +31,5 @@ $(document).ready(function () {
     });
 
     $('.result-container').html(html);
-  }
+  };
 });
