@@ -95,3 +95,8 @@ div.results {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
+
+#sig {
+  text-align: center;
+  border: none;
+}
