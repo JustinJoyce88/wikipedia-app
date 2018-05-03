@@ -20,6 +20,9 @@ body {
   line-height: 150%;
   background-color: #005AA7;
   background: -webkit-linear-gradient(to bottom, #FFFDE4, rgba(88, 124, 160, 0.7));
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFDE4), to(rgba(88, 124, 160, 0.7)));
+  background: -webkit-linear-gradient(top, #FFFDE4, rgba(88, 124, 160, 0.7));
+  background: -o-linear-gradient(top, #FFFDE4, rgba(88, 124, 160, 0.7));
   background: linear-gradient(to bottom, #FFFDE4, rgba(88, 124, 160, 0.7));
   background-attachment: fixed;
 }
@@ -63,7 +66,15 @@ div .result-btn {
 div.results {
   margin-top: 10em;
   opacity: 0;
-  animation: 1s slideFade 100ms forwards;
+  -webkit-animation: 1s slideFade 100ms forwards;
+          animation: 1s slideFade 100ms forwards;
+}
+
+@-webkit-keyframes slideFade {
+  100% {
+    opacity: 1;
+    margin-top: 0em;
+  }
 }
 
 @keyframes slideFade {
