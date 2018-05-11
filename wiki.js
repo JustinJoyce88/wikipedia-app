@@ -1,8 +1,10 @@
-$(document).ready(() => {
+"use strict";
+
+$(() => {
   $("form").on("submit", function (e) {
     e.preventDefault();
-    let result = $(this).serialize();
-    let url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&" + result;
+    const result = $(this).serialize();
+    const url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&" + result;
     $('#mySearch').val('');
     $.getJSON({
       url: url,
@@ -14,10 +16,10 @@ $(document).ready(() => {
     
   });
 
-  let getData = (data) => {
+  const getData = (data) => {
     let html = '';
-    let desc = data[2].map((val) => val.substr(0, 200) + "...");
-    let url = data[3].map((val) => val);
+    const desc = data[2].map((val) => val.substr(0, 200) + "...");
+    const url = data[3].map((val) => val);
 
     $.each(data[1], (key, val) => {
       html += '<div class="container container-fluid results">';
